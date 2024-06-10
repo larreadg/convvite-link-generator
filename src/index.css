@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+  margin : 0;
+}
+
+:root {
+  --primary-color: #F63854;
+  --secondary-color: #fff;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.convvite {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.convvite_title {
+  font-family: 'Trebuchet MS', sans-serif;
+  margin-bottom: 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+.convvite_form {
+  display: flex;
+  flex-direction: column;
+}
+
+.convvite_form_input_group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.convvite_form_input_group label {
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.convvite_form_input_group input {
+  border: 1px solid var(--primary-color);
+  font-family: 'Trebuchet MS', sans-serif;
+  padding: 0.5rem 1rem;
+}
+
+.convvite_button {
+  border: none;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  font-size: 1rem;
+  font-family: 'Trebuchet MS', sans-serif;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.convvite_button_secondary {
+  border: 3px solid var(--primary-color);
+  background-color: transparent;
+  color: var(--primary-color);
+  font-size: 1rem;
+  font-family: 'Trebuchet MS', sans-serif;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.disabled {
+  opacity: 0.5;
+}
+
+.convvite_button_secondary .container_with_icon {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.convvite_button_secondary .container_with_icon img {
+  width: 24px;
+  height: auto;
+}
+
+.convvite_link {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0;
+  animation: fadeIn 1s ease-in forwards;
+}
+
+.convvite_link a {
+  font-family: 'Trebuchet MS', sans-serif;
+  word-wrap: break-word; /* Para IE */
+  overflow-wrap: break-word; /* Para otros navegadores */
+  color: var(--primary-color);
+}
+
+.convvite_brand_container {
+  display: flex;
+  justify-content: center;
+}
+
+.convvite_brand_container img {
+  width: 128px;
+  height: auto;
+}
+
+.convvite_tarjeta_digital {
+  font-family: 'Trebuchet MS', sans-serif;
+  color: var(--primary-color);
+}
