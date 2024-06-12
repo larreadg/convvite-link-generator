@@ -13,11 +13,17 @@ function App() {
   const [nombre, setNombre] = useState('')
   const [jovenes, setJovenes] = useState(0)
   const [adultos, setAdultos] = useState(0)
+  const [mensaje, setMensaje] = useState('')
   const [link, setLink] = useState(null)
 
   useEffect(() => {
-    endOfMessagesRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [link]);
+    endOfMessagesRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }, [link])
+  
+  useEffect(() => {
+    const storedMensaje = localStorage.getItem('mensaje')
+    setMensaje(storedMensaje !== null ? storedMensaje : '¡Hola! Te invito a mi fiesta 😀🎉')
+  }, [])
 
   const handleInputChange = (event) => {
     const { name, value } = event.target
@@ -28,6 +34,9 @@ function App() {
       setJovenes(value)
     } else if (name === 'adultos') {
       setAdultos(value)
+    } else if (name === 'mensaje') {
+      localStorage.setItem('mensaje', value)
+      setMensaje(value)
     }
   }
 
@@ -55,6 +64,8 @@ function App() {
     setNombre('')
     setAdultos(0)
     setJovenes(0)
+    const storedMensaje = localStorage.getItem('mensaje')
+    setMensaje(storedMensaje !== null ? storedMensaje : '¡Hola! Te invito a mi fiesta 😀🎉')
     setLink(null)
   }
 
@@ -64,8 +75,8 @@ function App() {
       try {
         await navigator.share({
           title: 'Compartir enlace',
-          text: 'Echa un vistazo a este enlace',
-          url: link
+          url: link, 
+          text: mensaje
         });
         console.log('Enlace compartido exitosamente');
       } catch (error) {
@@ -99,6 +110,10 @@ function App() {
           <section className='convvite_form_input_group'>
             <label>Cantidad de adultos</label>
             <input type="number" name="adultos" placeholder='Ingrese cantidad de adultos...' value={adultos} onChange={handleInputChange} />
+          </section>
+          <section className='convvite_form_input_group'>
+            <label>Mensaje al compartir enlace</label>
+            <textarea type="text" name="mensaje" value={mensaje} onChange={handleInputChange} />
           </section>
           <button onClick={handleSubmit} className={`convvite_button ${nombre == '' || jovenes < 0 || adultos < 0 ? 'disabled' : ''}`} type="button" disabled={nombre == '' || jovenes < 0 || adultos < 0}>Generar Link</button>
           <button onClick={clearForm} className='convvite_button_secondary' type="button">Limpiar</button>

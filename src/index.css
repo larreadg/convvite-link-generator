@@ -45,12 +45,14 @@
   font-family: 'Trebuchet MS', sans-serif;
   font-size: 1rem;
   margin-bottom: 0.5rem;
+  font-weight: bolder;
 }
 
-.convvite_form_input_group input {
+.convvite_form_input_group input, .convvite_form_input_group textarea {
   border: 1px solid var(--primary-color);
   font-family: 'Trebuchet MS', sans-serif;
   padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
 }
 
 .convvite_button {
@@ -61,16 +63,18 @@
   font-family: 'Trebuchet MS', sans-serif;
   margin-top: 1rem;
   padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
 }
 
 .convvite_button_secondary {
-  border: 3px solid var(--primary-color);
+  border: 2px solid var(--primary-color);
   background-color: transparent;
   color: var(--primary-color);
   font-size: 1rem;
   font-family: 'Trebuchet MS', sans-serif;
   margin-top: 1rem;
   padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
 }
 
 .disabled {
@@ -116,4 +120,11 @@
 .convvite_tarjeta_digital {
   font-family: 'Trebuchet MS', sans-serif;
   color: var(--primary-color);
+}
+
+textarea {
+  height: 150px;  /* Define la altura específica */
+  width: 100%;    /* Define el ancho */
+  resize: vertical;  /* Permite solo el redimensionamiento vertical */
+  overflow: auto; /* Agrega un scrollbar si el contenido sobrepasa el área */
 }
